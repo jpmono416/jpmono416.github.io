@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Perez — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="Jonathan%20Perez%20CV_files/css2_mcnj.css" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --ink-muted: #4a4a6a;
+    --ink-faint: #8888aa;
+    --accent: #0d7c66;
+    --accent-light: #e6f4f1;
+    --accent-mid: #1aaa8a;
+    --bg: #fafaf8;
+    --sidebar-bg: #1a1a2e;
+    --sidebar-text: #e8e8f0;
+    --sidebar-muted: #9898b8;
+    --sidebar-accent: #4ecdb4;
+    --rule: #e0e0e8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Figtree', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { font-size: 16px; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── LAYOUT ── */
+  .cv-wrap {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 0 80px rgba(0,0,0,0.12);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 52px 32px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(78,205,180,0.1);
+    pointer-events: none;
+  }
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    bottom: 80px; left: -80px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(78,205,180,0.06);
+    pointer-events: none;
+  }
+
+  .avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-name {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .sidebar-title {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--sidebar-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .sb-section {
+    margin-bottom: 32px;
+  }
+
+  .sb-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sidebar-accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sb-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(78,205,180,0.2);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 12.5px;
+    color: var(--sidebar-muted);
+    line-height: 1.4;
+  }
+
+  .contact-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    opacity: 0.7;
+  }
+
+  .contact-item a {
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: color 0.2s;
+    word-break: break-all;
+  }
+  .contact-item a:hover { color: var(--sidebar-accent); }
+
+  .skill-group {
+    margin-bottom: 18px;
+  }
+
+  .skill-group-name {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--sidebar-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--sidebar-text);
+    padding: 3px 8px;
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .pill:hover {
+    background: rgba(78,205,180,0.12);
+    border-color: rgba(78,205,180,0.3);
+  }
+
+  /* ── MAIN ── */
+  .main {
+    background: #fff;
+    padding: 52px 52px 64px;
+  }
+
+  .main-header {
+    margin-bottom: 44px;
+    padding-bottom: 32px;
+    border-bottom: 1.5px solid var(--rule);
+  }
+
+  .main-name {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  .main-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .summary {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink-muted);
+    max-width: 580px;
+    font-weight: 400;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 24px;
+    margin-bottom: 28px;
+    position: relative;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .exp-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 120px;
+    top: calc(100% + 2px);
+    bottom: -26px;
+    width: 1px;
+    background: var(--rule);
+    transform: translateX(-0.5px);
+  }
+
+  .exp-date {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    text-align: right;
+    padding-top: 3px;
+    padding-right: 4px;
+  }
+
+  .exp-current {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-top: 4px;
+  }
+
+  .exp-body {
+    border-left: 2px solid transparent;
+    padding-left: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .exp-item:hover .exp-body {
+    border-left-color: var(--accent-light);
+  }
+
+  .exp-role {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    margin-bottom: 8px;
+  }
+
+  .exp-bullets li {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  .tech-tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-card {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 18px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-mid);
+    box-shadow: 0 2px 16px rgba(13,124,102,0.08);
+  }
+
+  .project-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .project-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 9px;
+  }
+
+  .project-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .project-links a:hover {
+    border-color: var(--accent);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    background: #fafaf9;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .edu-degree {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .edu-institution {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  .edu-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body { background: #fff; }
+    .cv-wrap {
+      box-shadow: none;
+      max-width: 100%;
+      grid-template-columns: 240px 1fr;
+    }
+
+    .sidebar { background: var(--sidebar-bg) !important; }
+    .main-name { font-size: 42px; }
+
+    a { color: inherit; }
+    a[href]::after { content: none; }
+
+    /* Switch exp-item from grid to block — break-inside:avoid only works
+       reliably on block-level boxes, not grid items, in Chrome's print engine */
+    .exp-item {
+      display: block;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    /* Hide decorative timeline connector so it doesn't confuse layout */
+    .exp-item::after { display: none; }
+
+    /* IMPORTANT: floats are a well-known cause of break-inside:avoid being
+       silently ignored across browsers/print engines. Keep this stacked
+       (no float) so the whole entry reliably stays on one page. */
+    .exp-date {
+      display: block;
+      float: none;
+      text-align: left;
+      margin-bottom: 6px;
+    }
+    .exp-body {
+      overflow: visible;
+    }
+
+    /* Glue each section heading to whatever follows it, so a heading never
+       gets orphaned alone at the bottom of a page while its first item
+       (which also has break-inside:avoid) gets pushed to the next page —
+       this is what caused the card's top border to render at the page seam */
+    .section-heading {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    /* Projects: use CSS multi-column (not grid) to keep the 2-column look —
+       grid items don't reliably honour break-inside:avoid when printed, but
+       multi-column fragmentation does, and stays compatible with break-inside */
+    .projects-grid {
+      display: block;
+      column-count: 2;
+      column-gap: 14px;
+    }
+    .project-card {
+      display: block;
+      float: none;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 10px;
+    }
+
+    .edu-item {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 780px) {
+    .cv-wrap { grid-template-columns: 1fr; }
+    .sidebar { padding: 40px 28px; }
+    .main { padding: 40px 28px; }
+    .main-name { font-size: 40px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 4px; }
+    .exp-date { text-align: left; }
+    .exp-body { padding-left: 0; border-left: none; padding-top: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="cv-wrap">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar">
+    <div class="avatar">JP</div>
+    <p class="sidebar-name">Jonathan<br>Perez</p>
+    <p class="sidebar-title">Software Engineer</p>
+
+    <!-- Contact -->
+    <div class="sb-section">
+      <p class="sb-label">Contact</p>
+
+      <div class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <a href="https://jpmono416.github.io/" target="_blank">jpmono416.github.io</a>
+      </div>
+
+      <div class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span>Shrewsbury, United Kingdom</span>
+      </div>
+
+      <div class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.54 3.32 2 2 0 0 1 3.5 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <a href="tel:07761387450">07761 387450</a>
+      </div>
+
+      <div class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+        <a href="mailto:Jonathanperez.11.02.98@gmail.com">Jonathanperez.11.02.98<br>@gmail.com</a>
+      </div>
+
+      <div class="contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <a href="https://linkedin.com/in/jonathan-perez-romero" target="_blank">jonathan-perez-romero</a>
+      </div>
+
+    </div>
+
+    <!-- Skills -->
+    <div class="sb-section">
+      <p class="sb-label">Languages</p>
+      <div class="skill-pills">
+        <span class="pill">TypeScript</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Java</span>
+        <span class="pill">C++</span>
+        <span class="pill">Go</span>
+        <span class="pill">Python</span>
+        <span class="pill">Node.js</span>
+        <span class="pill">.NET</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <p class="sb-label">Frontend</p>
+      <div class="skill-pills">
+        <span class="pill">React</span>
+        <span class="pill">REST APIs</span>
+        <span class="pill">Spring Boot</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <p class="sb-label">Cloud &amp; Data</p>
+      <div class="skill-pills">
+        <span class="pill">AWS</span>
+        <span class="pill">Docker</span>
+        <span class="pill">PostgreSQL</span>
+        <span class="pill">MySQL</span>
+        <span class="pill">MongoDB</span>
+        <span class="pill">Firebase</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <p class="sb-label">Practices</p>
+      <div class="skill-pills">
+        <span class="pill">Spec-Driven Dev</span>
+        <span class="pill">Agent Harness Engineering</span>
+        <span class="pill">Product Engineering</span>
+        <span class="pill">Full Stack Development</span>
+        <span class="pill">Microservices</span>
+        <span class="pill">CI/CD</span>
+        <span class="pill">Agile</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <header class="main-header">
+      <h1 class="main-name">Jonathan <em>Perez</em></h1>
+      <p class="summary">
+        Software Engineer and startup founder with a track record of 
+taking ideas from spec to shipped product. Currently building Local Shop
+ Global Vision, helping local businesses establish a professional 
+digital presence, applying spec-driven development and agent harness 
+engineering to ship reliable software with AI coding agents. Brings 
+engineering experience across fintech, public sector, and enterprise 
+environments, working in Java, TypeScript, React, Node.js, C++, and .NET
+ ecosystems.
+      </p>
+    </header>
+
+    <!-- Experience -->
+    <section class="section">
+      <h2 class="section-heading">Experience</h2>
+
+      <div class="exp-item">
+        <div class="exp-date">
+          May 2026<br>Present
+          <span class="exp-current">Current</span>
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Founder &amp; Developer</p>
+          <p class="exp-company">Local Shop Global Vision</p>
+          <ul class="exp-bullets">
+            <li>Founded a startup helping local, independent businesses 
+establish a professional digital presence through fast, affordable, 
+ready-to-deploy websites.</li>
+            <li>Own the product end-to-end — from client and market research through design, development, deployment, and ongoing iteration.</li>
+            <li>Practising spec-driven development paired with custom 
+agent harnesses to direct AI coding tools reliably from specification 
+through to production deployment.</li>
+            <li>Designed and shipped two production-ready templates, for
+ retail and barber shop businesses, each live and deployable for new 
+clients within days.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Spec-Driven Development</span>
+            <span class="tech-tag">Agent Harness Engineering</span>
+            <span class="tech-tag">Product Engineering</span>
+          </div>
+          <div class="project-links">
+            <a href="https://monolith-retail-template-web.vercel.app/" target="_blank">Retail Template →</a>
+            <a href="https://monolith-barber-template-web.vercel.app/" target="_blank">Barber Template →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">
+          Nov 2024<br>Jun 2026
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Software Engineer</p>
+          <p class="exp-company">Digital Futures — Contract</p>
+          <ul class="exp-bullets">
+            <li>Delivered customisations and integrations on a large-scale public sector project using Dynamics 365 and Power Platform.</li>
+            <li>Collaborated across distributed agile teams to deliver scalable enterprise solutions aligned with business requirements.</li>
+            <li>Participated in a company AI-focused hackathon to improve internal processes and engineering workflows.</li>
+            <li>Supported Scrum Master activities including sprint coordination, prioritisation, and delivery flow improvements.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">.NET</span>
+            <span class="tech-tag">Dynamics 365</span>
+            <span class="tech-tag">Power Platform</span>
+            <span class="tech-tag">Agile</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">
+          Jul 2023<br>Nov 2023
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Software Developer</p>
+          <p class="exp-company">Campbell Scientific Ltd</p>
+          <ul class="exp-bullets">
+            <li>Developed and maintained performance-critical C++ components within a low-level message switching system.</li>
+            <li>Diagnosed and resolved issues across complex distributed systems with a strong focus on reliability and optimisation.</li>
+            <li>Designed and implemented a proof-of-concept Go microservice architecture for scalable data processing workflows.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">C++</span>
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">Distributed Systems</span>
+            <span class="tech-tag">Microservices</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">
+          May 2022<br>Nov 2022
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Associate Java Developer</p>
+          <p class="exp-company">Paradine Ltd</p>
+          <ul class="exp-bullets">
+            <li>Developed and maintained Java-based microservices and REST APIs within an agile environment.</li>
+            <li>Applied TDD principles and contributed to CI/CD pipelines supporting stable deployments.</li>
+            <li>Collaborated through pair programming and onboarding support.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">CI/CD</span>
+            <span class="tech-tag">TDD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">
+          Aug 2020<br>Dec 2020
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Junior Java Developer</p>
+          <p class="exp-company">IXL PremFina</p>
+          <ul class="exp-bullets">
+            <li>Developed backend services and APIs within a regulated fintech environment.</li>
+            <li>Contributed to migration work from legacy systems to bespoke microservice solutions.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring</span>
+            <span class="tech-tag">Microservices</span>
+            <span class="tech-tag">Fintech</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">
+          Oct 2016<br>Apr 2018
+        </div>
+        <div class="exp-body">
+          <p class="exp-role">Java Developer</p>
+          <p class="exp-company">Winedunk Ltd</p>
+          <ul class="exp-bullets">
+            <li>Sole developer responsible for building and launching a wine price comparison platform with advanced filtering capabilities.</li>
+            <li>Worked directly with business stakeholders in a startup environment to rapidly deliver features.</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Full-Stack</span>
+            <span class="tech-tag">Web Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <h2 class="section-heading">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <p class="project-name">Ace Proposals</p>
+          <p class="project-desc">AI-powered web platform for generating business proposals and reports. Functionally complete and preparing for deployment.</p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">Consistenz</p>
+          <p class="project-desc">Web and Android wellbeing/productivity
+ application for habit tracking and task management. Production-ready 
+and fully passed QA on Android devices, pending release to the Google 
+Play Store.</p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">HelpHive</p>
+          <p class="project-desc">Community-focused volunteering 
+platform designed to streamline local disaster response efforts. 
+Previously deployed on Netlify, currently undergoing modernisation.</p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">Ultimate Beat Battle Online</p>
+          <p class="project-desc">Competitive music production platform featuring timed tournaments and community voting systems.</p>
+        </div>
+        <div class="project-card">
+          <p class="project-name">AutoSpotifyDownloader (S2YS)</p>
+          <p class="project-desc">Full-fledged web application that 
+synchronises music libraries across Spotify, YouTube, and SoundCloud, 
+supporting automated downloads and DJ workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certs -->
+    <section class="section">
+      <h2 class="section-heading">Education &amp; Certifications</h2>
+      <div class="edu-grid">
+
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">Microsoft Dynamics 365 Customer Service Functional Consultant (MB-230)</p>
+            <p class="edu-institution">Microsoft</p>
+          </div>
+          <p class="edu-year">Jan 2025</p>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">Oracle Certified Associate Java Programmer (1Z0-808)</p>
+            <p class="edu-institution">Oracle</p>
+          </div>
+          <p class="edu-year">Aug 2024</p>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">Software Engineering Programme</p>
+            <p class="edu-institution">Digital Futures</p>
+          </div>
+          <p class="edu-year">Aug 2024</p>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <p class="edu-degree">BSc (Hons) Software Engineering</p>
+            <p class="edu-institution">Nottingham Trent University</p>
+          </div>
+          <p class="edu-year">Jul 2020</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+
+</body></html>
